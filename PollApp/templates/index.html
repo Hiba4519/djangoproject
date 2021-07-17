@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Poll Index Page</title>
+</head>
+<body>
+	{% block content %}
+		<center>
+			<h3>Voters!!<br>This is a Voting App.Please Login to continue</h3>
+			<a href="{% url 'PollApp:login' %}" class="btn btn-success">Login</a>
+			<a href="{% url 'PollApp:register' %}" class="btn btn-secondary">Register</a>
+		</center>
+	{% endblock %}
+</body>
+</html>

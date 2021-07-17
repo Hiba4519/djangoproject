@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HomePage</title>
+</head>
+<body>
+	{% block content %}
+		{% if messages %}
+				<ul class="messages">
+					{% for message in messages %}
+					<div class="alert alert-success" role="alert">
+						<li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+					</div>
+					{% endfor %}
+				</ul>
+			{% endif %}
+			<div align="right">
+			<a href="{% url 'PollApp:viewProfile' log.id %}"  class="btn btn-info">My Profile</button></a>&nbsp &nbsp
+          	<a href="{% url 'PollApp:logout' %}" class="btn btn-secondary" >Logout</a>
+          </div>
+
+		<h3>Welcome to Polling App</h3>
+		<div >
+		<a href="{% url 'PollApp:createPoll' log.id %}" class="btn btn-dark">Create a Poll</a>&nbsp &nbsp
+		<a href="{% url 'PollApp:displayPoll' log.id %}" class="btn btn-light">View all Polls</a><br>
+		</div>
+	{% endblock %}
+</body>
+</html>

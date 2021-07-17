@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Create a Poll</title>
+</head>
+<body>
+	{% block content %}
+		<form action="{% url 'PollApp:createPoll' log.id %}" method="POST">
+			{% csrf_token %}
+			{{form|crispy}}
+			<div align="right">
+				<a href="{% url 'PollApp:home' user.id %}" class="btn btn-secondary" >Home</a>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<strong>Poll Question/title:</strong>
+						<td>{{poll.Question}}</td>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Poll Answers/Options:</strong></td>
+				</tr>
+				<tr>
+					<td>Option 1:</td>
+					<td>{{poll.Option1}}</td>
+				</tr>
+				<tr>
+					<td>Option 2:</td>
+					<td>{{poll.Option2}}</td>
+				</tr>
+				<tr>
+					<td>Option 3:</td>
+					<td>{{poll.Option3}}</td>
+				</tr>
+				<tr>
+					<td>Option 4:</td>
+					<td>{{poll.Option4}}</td>
+				</tr>
+			</table>
+			<input class="btn btn-sm btn-success"type="submit" value="Create Poll">
+		</form>
+	{% endblock %}
+</body>
+</html>

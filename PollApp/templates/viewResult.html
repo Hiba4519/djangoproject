@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Result</title>
+</head>
+<body>
+	{% block content %}
+			<strong>{{result.question}}</strong>
+			<hr>
+			<table class="table table-striped" bgcolor="lightblue">
+				<thead>
+					<tr>
+						<th>Option</th>
+						<th>Votes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{result.option1}}</td>
+						<td>{{result.option1_count}}</td>
+					</tr>
+					<tr>
+						<td>{{result.option2}}</td>
+						<td>{{result.option2_count}}</td>
+					</tr>
+					<tr>
+						<td>{{result.option3}}</td>
+						<td>{{result.option3_count}}</td>
+					</tr>
+					<tr>
+						<td>{{result.option4}}</td>
+						<td>{{result.option4_count}}</td>
+					</tr>
+				</tbody>
+		</table>
+		<a href="{% url 'PollApp:displayPoll' result.id %}" class="btn btn-secondary">Back to polls</a>
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+<body>
+	{% block content %}
+	<div align="right">
+				<a href="{% url 'PollApp:home' user.id %}" class="btn btn-secondary" >Home</a>
+			</div>
+	<center><strong><u><font size="6px">{{profile.name}} Profile</font></u></strong></center>
+		<table>
+			<div>
+				<tr>
+					<td>
+						Name:
+					</td>
+					<td>
+						{{profile.name}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Age:
+					</td>
+					<td>
+						{{profile.age}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Place:
+					</td>
+					<td>
+						{{profile.place}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Mobile:
+					</td>
+					<td>
+						{{profile.mobile}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Email:
+					</td>
+					<td>
+						{{profile.email}}
+					</td>
+				</tr>
+			</table>
+			</div>
+			<hr>
+			<div>
+				<h5>My Questions</h5>
+				{% for poll in polls %}
+					<tr>
+						<td>
+							{{forloop.counter}}.<a href="{% url 'PollApp:viewResult' poll.id %}">{{poll.question}}</a><br>
+						</td>
+					</tr>
+				{% endfor %}
+			</div>
+		
+	{% endblock %}	
+</body>
